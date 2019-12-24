@@ -37,7 +37,7 @@ public class BitMapCallBack implements Callback {
     }
 
     @Override
-    public void onResponse(Call call, final Response response) throws IOException {
+    public void onResponse(Call call, final Response response){
         handler.post(new Runnable() {
             @Override
             public void run() {
