@@ -1,5 +1,6 @@
 package com.yuan.hnet.okhttp.callback;
 
+import com.yuan.hnet.OkHttpException;
 import com.yuan.hnet.okhttp.listener.OkListener;
 
 import java.io.IOException;
@@ -19,9 +20,18 @@ public class JsonCallBack extends CommonCallback {
     }
 
     @Override
-    public void onResponse(Call call, Response response) throws IOException {
-        final String result = response.body().string();
-        analyResult(result);
+    public void onResponse(Call call, Response response) {
+        try {
+            String result = response.body().string();
+            analyResult(result);
+        } catch (final IOException e) {
+            mDelieverHandler.post(new Runnable() {
+                @Override
+                public void run() {
+                    mListener.onFailure(new OkHttpException(OkHttpException.OTHER_ERROR, e.getMessage()));
+                }
+            });
+        }
     }
 
 }
