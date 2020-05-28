@@ -38,6 +38,7 @@ public abstract class GlobalHttp {
     private boolean mShowProgress = true;
     protected ProgressDialog progressDialog;
     private RequestType mRequestType = RequestType.POST;
+    protected int postType = 0;
 
     public GlobalHttp(Context context) {
         this.mContext = context;
@@ -129,7 +130,8 @@ public abstract class GlobalHttp {
                 mParams.clear();
                 okHttpRequest = new OkPostRequest(url, postMap, headers);
                 okHttpRequest.setBodyJsonParams(bodyJsonParams);
-                bodyJsonParams="";
+                bodyJsonParams = "";
+                okHttpRequest.setPostType(postType);
                 break;
             default:
                 break;
@@ -250,7 +252,7 @@ public abstract class GlobalHttp {
 
     protected abstract void addGlobalParams();
 
-    protected void addJsonParams(String jsonParams){
+    protected void addJsonParams(String jsonParams) {
         bodyJsonParams = jsonParams;
         addGlobalParams();
     }

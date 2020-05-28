@@ -19,6 +19,7 @@ public abstract class OkHttpRequest {
     protected Map<String, String> params = new HashMap<>();
     protected Map<String, String> headers = new HashMap<>();
     protected String bodyJsonParams;
+    protected int postType = 0;
 
     protected Request.Builder builder = new Request.Builder();
     /*只有请求url、请求参数的构造方法*/
@@ -74,5 +75,9 @@ public abstract class OkHttpRequest {
 
     public void setBodyJsonParams(String bodyJsonParams) {
         this.bodyJsonParams = bodyJsonParams;
+    }
+
+    public void setPostType(int postType) {
+        this.postType = postType;
     }
 }
