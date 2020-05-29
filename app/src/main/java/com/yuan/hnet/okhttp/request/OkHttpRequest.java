@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import okhttp3.Headers;
+import okhttp3.MediaType;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 
@@ -19,7 +20,11 @@ public abstract class OkHttpRequest {
     protected Map<String, String> params = new HashMap<>();
     protected Map<String, String> headers = new HashMap<>();
     protected String bodyJsonParams;
+    //0 RequestBody ,1 FormBody
     protected int postType = 0;
+    //0 POST ,1 GET
+    protected int downloadType = 0;
+    protected static final MediaType MEDIA_TYPE_JSON = MediaType.parse("application/json; charset=utf-8");
 
     protected Request.Builder builder = new Request.Builder();
     /*只有请求url、请求参数的构造方法*/
@@ -79,5 +84,9 @@ public abstract class OkHttpRequest {
 
     public void setPostType(int postType) {
         this.postType = postType;
+    }
+
+    public void setDownloadType(int downloadType) {
+        this.downloadType = downloadType;
     }
 }

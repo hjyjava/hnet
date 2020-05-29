@@ -45,7 +45,6 @@ public class OkGetRequest extends OkHttpRequest {
             builder.appendQueryParameter(entry.getKey(), entry.getValue());
         }
         String s = builder.build().toString();
-//        Log.e("网络请求:", "请求地址+参数" + s);
         return s;
     }
 }

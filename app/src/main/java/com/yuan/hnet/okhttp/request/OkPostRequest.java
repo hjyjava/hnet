@@ -17,7 +17,7 @@ import okhttp3.RequestBody;
 
 public class OkPostRequest extends OkHttpRequest {
 //    private static final MediaType MEDIA_TYPE_JSON = MediaType.parse("application/x-www-form-urlencoded; charset=utf-8");
-    private static final MediaType MEDIA_TYPE_JSON = MediaType.parse("application/json; charset=utf-8");
+
 
     public OkPostRequest(String url, Map<String, String> params) {
         super(url, params);
