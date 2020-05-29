@@ -22,8 +22,6 @@ public abstract class OkHttpRequest {
     protected String bodyJsonParams;
     //0 RequestBody ,1 FormBody
     protected int postType = 0;
-    //0 POST ,1 GET
-    protected int downloadType = 0;
     protected static final MediaType MEDIA_TYPE_JSON = MediaType.parse("application/json; charset=utf-8");
 
     protected Request.Builder builder = new Request.Builder();
@@ -84,9 +82,5 @@ public abstract class OkHttpRequest {
 
     public void setPostType(int postType) {
         this.postType = postType;
-    }
-
-    public void setDownloadType(int downloadType) {
-        this.downloadType = downloadType;
     }
 }

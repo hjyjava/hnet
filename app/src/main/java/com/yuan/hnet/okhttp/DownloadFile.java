@@ -17,6 +17,9 @@ public class DownloadFile {
     private Map<String, String> downloadParams = new HashMap<>();
     //请求头部
     private Map<String, String> headers = new HashMap<>();
+    //0 POST ,1 GET
+    private int downloadType = 0;
+
 
     public Map<String, String> getDownloadParams() {
         return downloadParams;
@@ -48,5 +51,13 @@ public class DownloadFile {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public int getDownloadType() {
+        return downloadType;
+    }
+
+    public void setDownloadType(int downloadType) {
+        this.downloadType = downloadType;
     }
 }

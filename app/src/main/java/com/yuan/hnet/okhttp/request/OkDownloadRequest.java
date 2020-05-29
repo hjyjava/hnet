@@ -28,7 +28,7 @@ public class OkDownloadRequest extends OkHttpRequest {
 
     @Override
     protected Request buildRequest(RequestBody requestBody) {
-        if (downloadType == 0) {
+        if (mDownloadFile.getDownloadType() == 0) {
             return builder.url(url).post(requestBody).build();
         } else {
             return builder.url(buildUrl()).get().build();
@@ -50,7 +50,7 @@ public class OkDownloadRequest extends OkHttpRequest {
 
     @Override
     protected RequestBody buildRequestBody() {
-        if (downloadType == 0) {
+        if (mDownloadFile.getDownloadType() == 0) {
             if (postType == 0) {
                 if (!TextUtils.isEmpty(bodyJsonParams)) {
                     return RequestBody.create(MEDIA_TYPE_JSON, bodyJsonParams);
