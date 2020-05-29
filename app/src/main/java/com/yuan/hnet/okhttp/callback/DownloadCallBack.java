@@ -2,6 +2,7 @@ package com.yuan.hnet.okhttp.callback;
 
 import com.yuan.hnet.OkHttpException;
 import com.yuan.hnet.okhttp.DownloadFile;
+import com.yuan.hnet.okhttp.listener.OkDownLoadLisener;
 import com.yuan.hnet.okhttp.listener.OkFileLisener;
 import com.yuan.hnet.okhttp.listener.OkListener;
 
@@ -45,7 +46,7 @@ public class DownloadCallBack extends CommonCallback {
                 mDelieverHandler.post(new Runnable() {
                     @Override
                     public void run() {
-                        ((OkFileLisener)mListener).progress(finalWritedBytes,totalBytes);
+                        ((OkDownLoadLisener)mListener).progress(finalWritedBytes,totalBytes);
                     }
                 });
             }
